@@ -11,6 +11,16 @@ module.exports = {
             {
                 test : /\.js$/,
                 use : 'babel-loader'
+            },
+            {
+                test : /\.css$/,
+                use : [{ loader: "style-loader/url" },
+                { 
+                    loader: "file-loader",
+                    options: {
+                        name: 'stylebundle.css',
+                    },
+                }]
             }
         ]
     }

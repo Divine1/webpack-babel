@@ -1,4 +1,6 @@
 import button from './button';
+import './style.css';
+import textbox from './textbox'
 
 console.log("in index.js --save hey")
 
@@ -9,3 +11,6 @@ aaa.forEach( (element,index ) => {
 });
 
 button()
+var div = textbox("my div");
+console.log(div)
+document.body.appendChild(div)
