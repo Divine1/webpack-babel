@@ -1,10 +1,13 @@
 const path  = require("path");
 
 module.exports = {
-    entry:"./src/index.js",
+    entry: {
+        pageone : "./src/index.js",
+        pagetwo : "./src/Home.js"
+    },
     output :{
-        path : path.resolve(__dirname,"build"),
-        filename : "bundle.js"
+        path : path.resolve(__dirname,"build1"),
+        filename : "[name]-[hash].[ext]"
     },
     module :{
         rules : [
@@ -14,13 +17,15 @@ module.exports = {
             },
             {
                 test : /\.css$/,
-                use : [{ loader: "style-loader/url" },
-                { 
-                    loader: "file-loader",
-                    options: {
-                        name: 'stylebundle.css',
-                    },
-                }]
+                use : [
+                    { loader: "style-loader/url" },
+                    { 
+                        loader: "file-loader",
+                        options: {
+                            name: '[name]-[hash].[ext]',
+                        },
+                    }
+                ]
             }
         ]
     }
